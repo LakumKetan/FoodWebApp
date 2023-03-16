@@ -1,0 +1,30 @@
+
+{% extends 'food/base.html' %}
+<!--{% load static %}-->
+
+{% block body %}
+ {% for i in item_list %}
+<!--<ul>-->
+<!--    <li>-->
+<!--        <a href='{% url "food:details" i.id %}'>{{ i.id }} -&#45;&#45; {{ i.item_name }}</a>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<div class="row">
+    <div class="col-md-3">
+        <img class="card" height="150px" src="{{ i.item_image }}">
+    </div>
+    <div class="col-md-4">
+        <h3> {{ i.item_name }}</h3>
+        <h3> {{ i.item_desc }}</h3>
+        <h3> {{ i.item_price }}</h3>
+    </div>
+    <div class="col-md-3">
+            <a href="{% url 'food:details' i.id %}" class='btn btn-success'>View Details</a>
+    </div>
+
+</div>
+
+{% endfor %}
+{% endblock %}
+
